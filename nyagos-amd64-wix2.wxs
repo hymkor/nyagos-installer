@@ -15,12 +15,11 @@
           <Directory Id='ProgramFiles64Folder' Name='PFiles'>
               <Directory Id='NyaosOrg' Name='NyaosOrg'>
                   <Component Id='Nyagos' Guid='7bf815ef-79d5-4f9f-8870-71e5866ea512' >
-                      <File Id="NyagosExe" Name="nyagos.exe" DiskId='1' src='cmd/amd64/nyagos.exe' />
+                      <File Id="NyagosExe" Name="nyagos.exe" DiskId='1' src='../cmd/amd64/nyagos.exe' />
                   </Component>
               </Directory>
           </Directory>
       </Directory>
-
 
       <Feature Id='NyaosOrg' Title='My 1st Feature' Level='1'>
          <ComponentRef Id='Nyagos' />
