@@ -1,3 +1,4 @@
+rem @echo off
 setlocal
 set "PROMPT=$ "
 call :"%1"
@@ -5,7 +6,18 @@ endlocal
 exit /b
 
 :""
+    call :"amd64"
+    call :"386"
+    exit /b
+
+:"amd64"
+    upx ..\cmd\amd64\nyagos.exe
     call :mkmsi nyagos-amd64-wix2
+    exit /b
+
+:"386"
+    upx ..\cmd\386\nyagos.exe
+    call :mkmsi nyagos-386-wix2
     exit /b
 
 :mkmsi
