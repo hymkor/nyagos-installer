@@ -1,0 +1,29 @@
+<?xml version='1.0'?>
+<Wix xmlns='http://schemas.microsoft.com/wix/2003/01/wi'>
+   <Product Id='2a558eea-0873-45d8-a046-6e6ebe998559' Name='NyaosOrg Package' Language='1033' 
+            Version='1.0.0.0' Manufacturer='nyaos.org'>
+      <Package Id='7bf815ef-79d5-4f9f-8870-71e5866ea512'
+               Description='My first Windows Installer package'
+               Comments='This is my first attempt at creating a Windows Installer database'
+               Manufacturer='Microsoft Corporation'
+               InstallerVersion='200' 
+               Platforms='x64'
+               Compressed='yes' />
+      <Media Id='1' Cabinet='nyagos.cab' EmbedCab='yes' />
+
+      <Directory Id='TARGETDIR' Name='SourceDir'>
+          <Directory Id='ProgramFiles64Folder' Name='PFiles'>
+              <Directory Id='NyaosOrg' Name='NyaosOrg'>
+                  <Component Id='Nyagos' Guid='7bf815ef-79d5-4f9f-8870-71e5866ea512' >
+                      <File Id="NyagosExe" Name="nyagos.exe" DiskId='1' src='cmd/amd64/nyagos.exe' />
+                  </Component>
+              </Directory>
+          </Directory>
+      </Directory>
+
+
+      <Feature Id='NyaosOrg' Title='My 1st Feature' Level='1'>
+         <ComponentRef Id='Nyagos' />
+      </Feature>
+   </Product>
+</Wix>
