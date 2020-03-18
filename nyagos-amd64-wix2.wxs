@@ -1,12 +1,12 @@
 <?xml version='1.0'?>
 <Wix xmlns='http://schemas.microsoft.com/wix/2003/01/wi'>
-   <Product Id='2a558eea-0873-45d8-a046-6e6ebe998559' Name='NyaosOrg Package' Language='1033' 
+   <Product Id='2a558eea-0873-45d8-a046-6e6ebe998559' Name='NyaosOrg Package' Language='1033'
             Version='1.0.0.0' Manufacturer='nyaos.org'>
       <Package Id='7bf815ef-79d5-4f9f-8870-71e5866ea512'
-               Description='My first Windows Installer package'
+               Description='Nihongo Yet Another GOing Shell 64bit Install Package'
                Comments='This is my first attempt at creating a Windows Installer database'
-               Manufacturer='Microsoft Corporation'
-               InstallerVersion='200' 
+               Manufacturer='nyaos.org'
+               InstallerVersion='200'
                Platforms='x64'
                Compressed='yes' />
       <Media Id='1' Cabinet='nyagos.cab' EmbedCab='yes' />
@@ -15,14 +15,24 @@
           <Directory Id='ProgramFiles64Folder' Name='PFiles'>
               <Directory Id='NyaosOrg' Name='NyaosOrg'>
                   <Component Id='Nyagos' Guid='7bf815ef-79d5-4f9f-8870-71e5866ea512' >
-                      <File Id="NyagosExe" Name="nyagos.exe" DiskId='1' src='../cmd/amd64/nyagos.exe' />
+                      <File Id="NyagosExe" Name="nyagos.exe" DiskId='1' src='../cmd/amd64/nyagos.exe' >
+                          <Shortcut Id='DesktopNyagos'
+                              Directory='DesktopFolder'
+                              Name='Nyagos'
+                              WorkingDirectory='INSTALLDIR'
+                              Icon='nyagos.exe'
+                              IconIndex='0'
+                              Advertise='yes' />
+                        </File>
                   </Component>
               </Directory>
           </Directory>
+          <Directory Id='DesktopFolder' Name='Desktop' />
       </Directory>
 
-      <Feature Id='NyaosOrg' Title='My 1st Feature' Level='1'>
+      <Feature Id='NyaosOrg' Title='NYAOS.ORG' Level='1'>
          <ComponentRef Id='Nyagos' />
       </Feature>
+      <Icon Id='nyagos.exe' SourceFile='../cmd/amd64/nyagos.exe' />
    </Product>
 </Wix>
