@@ -34,5 +34,5 @@ exit /b
     exit /b 0
 
 :"clean"
-    del *.msi *.wixobj
+    del *.msi *.wixobj *.bak
     exit /b 0
