@@ -1,4 +1,4 @@
-rem @echo off
+@echo off
 setlocal
 set "PROMPT=$ "
 candle.exe | findstr "version.2"
@@ -52,5 +52,5 @@ exit /b
     exit /b 0
 
 :"clean"
-    del *.msi *.wixobj *.bak
+    del *.msi *.wixobj *.bak *.wixpdb
     exit /b 0
